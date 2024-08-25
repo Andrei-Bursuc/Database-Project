@@ -129,13 +129,25 @@ The tables are connected in the following way:
   Below you can find all the insert instructions that were created in the scope of this project:
 
    <br /> insert into pacienti(nume, prenume, data_nasterii, telefon, email) 
-   <br />  values ('Russindilar' , 'Raluca', '1993-03-31', '0724946413', 'raluca.bursuc@gmail.com'),
-        <br />    ('Draghiceanu ' , 'Alin' , '1987-10-17' , '+0510725114678' , 'alyn_17dr@gmail.com'),
-        <br />    ('Tonu' , 'Marius' , '1990-02-26' , '0762336541' , 'tonu_m90@yahoo.com' ),
-         <br />   ('Grigoriu' , 'Alice' , '1993-11-26' , '0788910222' , 'aliss_gri@ggmail.com'),
-         <br />   ('Sava' , 'Catalin-Ionut' , '2000-12-22' , '0722478989' , 'catalinI_sava@gmail.com'),
-         <br />   ('Sotropa' , 'Diana' , '1970-01-18' , '0761333667' , 'sotropaDiana@yahoo.com');
+   <br />    values ('Russindilar' , 'Raluca', '1993-03-31', '0724946413', 'raluca.bursuc@gmail.com'),
+          <br />      ('Draghiceanu ' , 'Alin' , '1987-10-17' , '+0510725114678' , 'alyn_17dr@gmail.com'),
+          <br />      ('Tonu' , 'Marius' , '1990-02-26' , '0762336541' , 'tonu_m90@yahoo.com' ),
+           <br />     ('Grigoriu' , 'Alice' , '1993-11-26' , '0788910222' , 'aliss_gri@ggmail.com'),
+           <br />     ('Sava' , 'Catalin-Ionut' , '2000-12-22' , '0722478989' , 'catalinI_sava@gmail.com'),
+           <br />     ('Sotropa' , 'Diana' , '1970-01-18' , '0761333667' , 'sotropaDiana@yahoo.com');
 
+The data from the table can be interrogated by using the following script 
+ <br /> select* from pacienti;
+
+ <br />  insert into medici (nume, prenume, data_angajare, salar_anual, specializare, telefon)
+ <br />    values('Preda', 'Ancuta' , '2010-07-11' , 98000 , 'Cataracta adultului' , '0722312447'),
+   <br />        ('Oprea', 'Bianca' , '2015-01-11' , 92000 , 'Cataracta congenitala' , '0744223787'),
+     <br />      ('Troi', 'Raluca' , '2013-04-15' , 94020.80 , 'Chirurgie refractiva grad I' , '0763558478'),
+     <br />      ('Lisca', 'Monica' , '2019-11-20' , 85070, 'Oftalmologie pediatrica' , '0755365174'),
+      <br />     ('Strelet', 'Mihai' , '2022-05-13' , 83600.30, 'Chirurgie refractiva grad II' , '0733121657');
+
+      
+ 
   After the insert, in order to prepare the data to be better suited for the testing process, I updated some data in the following way:
 
   **Inserati aici toate instructiunile de UPDATE pe care le-ati scris folosind filtrarile necesare astfel incat sa actualizati doar datele de care aveti nevoie**
