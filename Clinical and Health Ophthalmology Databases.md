@@ -156,7 +156,10 @@ The data from the table can be interrogated by using the following script<br />
  <br />   values(1 , 10),
     <br /> &nbsp;     (2 , 10),
      <br />  &nbsp;   (3 , 8),
-       <br /> &nbsp;  (4 , 6);
+       <br /> &nbsp;  (4 , 6);<br />
+      <br />  The data from the table can be interrogated by using the following script<br />
+       select * from **saloane**; 
+       
 
        
  
