@@ -1,4 +1,4 @@
-<h1>Database Project for **Visionary Care**</h1>
+<h1>Database Project for Visionary Care</h1>
 
 The scope of this project is to use all the SQL knowledge gained throught the Software Testing course and apply them in practice.
 
@@ -20,10 +20,20 @@ The tables are connected in the following way:
 
 <ul>
   <li> **Saloane**  is connected with **Interventii** through a **1:n** relationship which was implemented through **saloane.id_salon ** as a primary key and **interventii.id_salon** as a foreign key</li>
-  <li> **nume tabela 3**  is connected with **nume tabela 4** through a **tip relatie** relationship which was implemented through **nume_tabela.nume_coloana_cheie_primara** as a primary key and **nume_tabela.nume_coloana_cheie_secundara** as a foreign key</li>
-  <li> **nume tabela 5**  is connected with **nume tabela 6** through a **tip relatie** relationship which was implemented through **nume_tabela.nume_coloana_cheie_primara** as a primary key and **nume_tabela.nume_coloana_cheie_secundara** as a foreign key</li>
-  ...........
-  <li> **nume tabela n**  is connected with **nume tabela n+1** through a **tip relatie** relationship which was implemented through **nume_tabela.nume_coloana_cheie_primara** as a primary key and **nume_tabela.nume_coloana_cheie_secundara** as a foreign key</li>
+  
+  <li> **Pacienti**  is connected with **Interventii** through a **1:n** relationship which was implemented through **pacienti.id_pacient** as a primary key and **interventii.id_pacient** as a foreign key</li>
+  
+  <li> **Pacienti**  is connected with **Retete** through a **1:n** relationship which was implemented through **pacienti.id_pacient** as a primary key and **retete.id_reteta** as a foreign key</li>
+  
+ <li> **Medici**  is connected with **Interventii** through a **1:n** relationship which was implemented through **medici.id_medic** as a primary key and **interventii.id_medic** as a foreign key</li>
+ 
+  <li> **Medici**  is connected with **Retete** through a **1:n** relationship which was implemented through **medici.id_medic** as a primary key and **retete.id_medic** as a foreign key</li>
+  
+  <li> **Retete**  is connected with **Registru_Retete** through a **1:n** relationship which was implemented through **retete.id_reteta** as a primary key and **registru_retete.id_retea** as a foreign key</li>
+  
+  <li> **Medicamente**  is connected with **Registru_Retete** through a **1:n** relationship which was implemented through **medicamente.id_medicament** as a primary key and **registru_retete.id_medicament** as a foreign key</li>
+
+  <li> Because the tables **Retete** and **Medicamente** are connected by a **n:n** relationship, the table ** Registru_Retete** is used as a cross table in order to break this realationship and keep the database in a normalized state </li>
 </ul><br>
 
 <li>Database Queries</li><br>
@@ -33,7 +43,78 @@ The tables are connected in the following way:
 
   The following instructions were written in the scope of CREATING the structure of the database (CREATE INSTRUCTIONS)
 
-  **Inserati aici toate instructiunile de CREATE pe care le-ati scris, atat create database cat si create table**
+<br />create table saloane
+<br />(
+<br />id_salon int primary key auto_increment,
+<br />etaj int not null, 
+<br />capacitate int not null
+<br />); 
+
+<br />create table pacienti
+<br />(
+<br />id_pacient int primary key auto_increment ,
+<br />nume varchar(30)  not null,
+<br />prenume varchar(30) not null,
+<br />data_nasterii date not null,
+<br />telefon varchar(20) unique
+<br />);
+
+<br />create table medici
+<br />(
+<br />id_medic int primary key auto_increment,
+<br />nume varchar(30) not null,
+<br />prenume varchar(30) not null,
+<br />data_angajare date not null,
+<br />salar_anual decimal(9,4) not null,
+<br />specializare varchar(40) not null,
+<br />telefon varchar(20) unique
+<br />);
+
+<br />create table interventii
+<br />(
+<br />id_interventie int primary key auto_increment,
+<br />procedura varchar(50) not null,
+<br />data_interventie date not null,
+<br />id_salon int,
+<br />foreign key (id_salon) references saloane(id_salon),
+<br />id_pacient int,
+<br />foreign key (id_pacient) references pacienti(id_pacient),
+<br />id_medic int,
+<br />foreign key (id_medic) references medici(id_medic)
+<br />);
+
+<br />create table retete
+<br />(
+<br />id_reteta int primary key auto_increment,
+<br />data_eliberare date not null,
+<br />id_pacient int,
+<br />foreign key (id_pacient) references pacienti(id_pacient),
+<br />id_medic int,
+<br />foreign key (id_medic) references medici(id_medic)
+<br />);
+
+<br />create table medicamente
+<br />( 
+<br />id_medicament int primary key auto_increment,
+<br />denumire varchar(30) not null,
+<br />pret decimal (4,2) not null,
+<br />descriere varchar(100)
+<br />);
+
+
+<br />create table registru_retete
+<br />(
+<br />id_registru int primary key auto_increment,
+<br />cantitate int not null,
+<br />administrare varchar(40) not null,
+<br />id_reteta int,
+<br />foreign key(id_reteta) references retete(id_reteta),
+<br />id_medicament int,
+<br />foreign key(id_medicament) references medicamente(id_medicament)
+<br />);
+
+
+
 
   After the database and the tables have been created, a few ALTER instructions were written in order to update the structure of the database, as described below:
 
