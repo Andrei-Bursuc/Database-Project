@@ -43,14 +43,14 @@ The tables are connected in the following way:
 
   The following instructions were written in the scope of CREATING the structure of the database (CREATE INSTRUCTIONS)
 
-<br />create table saloane
+<br />create table **saloane**
 <br />(
 <br />id_salon int primary key auto_increment,
 <br />etaj int not null, 
 <br />capacitate int not null
 <br />); 
 
-<br />create table pacienti
+<br />create table **pacienti**
 <br />(
 <br />id_pacient int primary key auto_increment ,
 <br />nume varchar(30)  not null,
@@ -59,7 +59,7 @@ The tables are connected in the following way:
 <br />telefon varchar(20) unique
 <br />);
 
-<br />create table medici
+<br />create table **medici**
 <br />(
 <br />id_medic int primary key auto_increment,
 <br />nume varchar(30) not null,
@@ -70,7 +70,7 @@ The tables are connected in the following way:
 <br />telefon varchar(20) unique
 <br />);
 
-<br />create table interventii
+<br />create table **interventii**
 <br />(
 <br />id_interventie int primary key auto_increment,
 <br />procedura varchar(50) not null,
@@ -83,7 +83,7 @@ The tables are connected in the following way:
 <br />foreign key (id_medic) references medici(id_medic)
 <br />);
 
-<br />create table retete
+<br />create table **retete**
 <br />(
 <br />id_reteta int primary key auto_increment,
 <br />data_eliberare date not null,
@@ -93,7 +93,7 @@ The tables are connected in the following way:
 <br />foreign key (id_medic) references medici(id_medic)
 <br />);
 
-<br />create table medicamente
+<br />create table **medicamente**
 <br />( 
 <br />id_medicament int primary key auto_increment,
 <br />denumire varchar(30) not null,
@@ -102,7 +102,7 @@ The tables are connected in the following way:
 <br />);
 
 
-<br />create table registru_retete
+<br />create table **registru_retete**
 <br />(
 <br />id_registru int primary key auto_increment,
 <br />cantitate int not null,
@@ -118,14 +118,8 @@ The tables are connected in the following way:
 
   After the database and the tables have been created, a few ALTER instructions were written in order to update the structure of the database, as described below:
 
-  **Inserati aici toate instructiunile de ALTER pe care le-ati scris. Incercati sa includeti instructiuni cat mai variate cum ar fi:**
- **- schimbare nume tabela**
- **- adaugare sau stergere coloana**
- **- redenumire coloana**
- **- adaugare proprietati coloana (ex: adaugare auto-increment)**
- **- modificare proprietati coloana (ex: modificare tip de data, modificare pozitie coloana etc)**
- **- adaugare cheie primara sau secundara (daca nu a fost deja adaugata la crearea tabelei)**
- 
+ <br /> alter table **pacienti** add column email varchar(30);
+<br />alter table **interventii** modify procedura varchar(80);
   
   <li>DML (Data Manipulation Language)</li>
 
@@ -134,7 +128,13 @@ The tables are connected in the following way:
 
   Below you can find all the insert instructions that were created in the scope of this project:
 
-  **Inserati aici toate instructiunile de INSERT pe care le-ati scris. Incercati sa folositi atat insert pe toate coloanele (fara sa precizati pe ce coloane se face insert) cat si insert pe cateva coloane (care necesita mentionarea explicita a coloanelor pe care se face insert). De asemenea, incercati sa acoperiti situatia in care inserati mai multe randuri in acelasi timp**
+   <br /> insert into pacienti(nume, prenume, data_nasterii, telefon, email) 
+   <br />  values ('Russindilar' , 'Raluca', '1993-03-31', '0724946413', 'raluca.bursuc@gmail.com'),
+        <br />    ('Draghiceanu ' , 'Alin' , '1987-10-17' , '+0510725114678' , 'alyn_17dr@gmail.com'),
+        <br />    ('Tonu' , 'Marius' , '1990-02-26' , '0762336541' , 'tonu_m90@yahoo.com' ),
+         <br />   ('Grigoriu' , 'Alice' , '1993-11-26' , '0788910222' , 'aliss_gri@ggmail.com'),
+         <br />   ('Sava' , 'Catalin-Ionut' , '2000-12-22' , '0722478989' , 'catalinI_sava@gmail.com'),
+         <br />   ('Sotropa' , 'Diana' , '1970-01-18' , '0761333667' , 'sotropaDiana@yahoo.com');
 
   After the insert, in order to prepare the data to be better suited for the testing process, I updated some data in the following way:
 
