@@ -113,9 +113,6 @@ The tables are connected in the following way:
 <br />foreign key(id_medicament) references medicamente(id_medicament)
 <br />);
 
-
-
-
   After the database and the tables have been created, a few ALTER instructions were written in order to update the structure of the database, as described below:
 
  <br /> alter table **pacienti** add column email varchar(30);
@@ -158,7 +155,17 @@ The data from the table can be interrogated by using the following script<br />
      <br />  &nbsp;   (3 , 8),
        <br /> &nbsp;  (4 , 6);<br />
       <br />  The data from the table can be interrogated by using the following script<br />
-       select * from **saloane**; 
+       select * from **saloane**; <br />
+      <br /> insert into interventii(procedura, data_interventie, id_salon, id_pacient, id_medic)
+ <br /> values('Inlocuirea cristalinului artificial' , '2022-03-19', 1 , 1 , 1),
+       <br /> &nbsp;('Indepartarea cataractei juvenile' , '2022-04-16' , 3 , 2 , 2),
+       <br /> &nbsp;('Extragerea intracapsulara a cristalinului' , '2022-09-22' , 1 , 3 , 1),
+       <br /> &nbsp;('Excizia canalelor lacrimale', '2023-01-12', 2 , 4 , 4),
+       <br /> &nbsp;('Alte proceduri pe muschii sau tendoanele extraoculare' , '2023-03-17' , 4 , 5, 3),
+        ('Transplant muscular pentru strabism' , '2024-02-09', 2, 6 , 5); <br />
+        <br />  The data from the table can be interrogated by using the following script<br />
+       select * from **interventii**; <br />
+        
        
 
        
