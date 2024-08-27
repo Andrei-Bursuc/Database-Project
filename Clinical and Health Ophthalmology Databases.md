@@ -220,10 +220,10 @@ In order to simulate various scenarios that might happen in real life I created 
 
 **Inserati aici toate instructiunile de SELECT pe care le-ati scris folosind filtrarile necesare astfel incat sa extrageti doar datele de care aveti nevoie**
 **Incercati sa acoperiti urmatoarele:**<br>
-**- where**<br  Sa se afiseze toata datele medicilor angajati incepand cu anul 2015 
- select * from medici where year(data_angajare) >= 2015;
+**- where**<br /> Sa se afiseze toata datele medicilor angajati incepand cu anul 2015 <br />
+ select * from medici where year(data_angajare) >= 2015;<br />
  
- Sa se afiseze denumirea si descrierea medicamentelor care au pretul cuprins intre 30 si 60 de lei
+ Sa se afiseze denumirea si descrierea medicamentelor care au pretul cuprins intre 30 si 60 de lei<br />
  select denumire, descriere from medicamente where pret between 30 and 60;
  
 **- AND**<br> Sa se selecteze toti medicii care au aceeasi specializare cu cea a medicului Apavaloaie Cornel, dar in afara de acesta
