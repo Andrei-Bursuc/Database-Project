@@ -131,72 +131,135 @@ The tables are connected in the following way:
           <br />  &nbsp;&nbsp; &nbsp;&nbsp;   ('Tonu' , 'Marius' , '1990-02-26' , '0762336541' , 'tonu_m90@yahoo.com' ),
           <br />  &nbsp;&nbsp;&nbsp;&nbsp;   ('Grigoriu' , 'Alice' , '1993-11-26' , '0788910222' , 'aliss_gri@ggmail.com'),
           <br />  &nbsp;&nbsp;&nbsp;&nbsp;   ('Sava' , 'Catalin-Ionut' , '2000-12-22' , '0722478989' , 'catalinI_sava@gmail.com'),
-         <br /> &nbsp;&nbsp; &nbsp;&nbsp;   ('Sotropa' , 'Diana' , '1970-01-18' , '0761333667' , 'sotropaDiana@yahoo.com');
+          <br /> &nbsp;&nbsp; &nbsp;&nbsp;   ('Sotropa' , 'Diana' , '1970-01-18' , '0761333667' , 'sotropaDiana@yahoo.com');
 
 The data from the table can be interrogated by using the following script 
  <br /> select* from **pacienti**;
 
- <br />  insert into **medici** (nume, prenume, data_angajare, salar_anual, specializare, telefon)
- <br />    values&nbsp;('Preda', 'Ancuta' , '2010-07-11' , 98000 , 'Cataracta adultului' , '0722312447'),
- <br />  &nbsp;    ('Oprea', 'Bianca' , '2015-01-11' , 92000 , 'Cataracta congenitala' , '0744223787'),
- <br /> &nbsp;    ('Troi', 'Raluca' , '2013-04-15' , 94020.80 , 'Chirurgie refractiva grad I' , '0763558478'),
- <br />  &nbsp;    ('Lisca', 'Monica' , '2019-11-20' , 85070, 'Oftalmologie pediatrica' , '0755365174'),
- <br /> &nbsp;   ('Strelet', 'Mihai' , '2022-05-13' , 83600.30, 'Chirurgie refractiva grad II' , '0733121657'); <br /> <br />
- <br />    insert into **medici** (nume, prenume, data_angajare, salar_anual, specializare, telefon)
- <br />   values&nbsp;('Apavaloaie', 'Cornel' , '2011-08-12' , 95000 , 'Cataracta congenitala' , '0724567543'),
- <br />    &nbsp;   ('Grosu', 'Adrian' , '2017-02-23' , 99000 , 'Oftalmologie pediatrica' , '0742987565');<br /> 
+  <br />  insert into **medici** (nume, prenume, data_angajare, salar_anual, specializare, telefon)
+  <br />    values&nbsp;('Preda', 'Ancuta' , '2010-07-11' , 98000 , 'Cataracta adultului' , '0722312447'),
+          <br />  &nbsp;    ('Oprea', 'Bianca' , '2015-01-11' , 92000 , 'Cataracta congenitala' , '0744223787'),
+          <br /> &nbsp;    ('Troi', 'Raluca' , '2013-04-15' , 94020.80 , 'Chirurgie refractiva grad I' , '0763558478'),
+          <br />  &nbsp;    ('Lisca', 'Monica' , '2019-11-20' , 85070, 'Oftalmologie pediatrica' , '0755365174'),
+          <br /> &nbsp;   ('Strelet', 'Mihai' , '2022-05-13' , 83600.30, 'Chirurgie refractiva grad II' , '0733121657'); <br /> <br />
+          <br />    insert into **medici** (nume, prenume, data_angajare, salar_anual, specializare, telefon)
+          <br />   values&nbsp;('Apavaloaie', 'Cornel' , '2011-08-12' , 95000 , 'Cataracta congenitala' , '0724567543'),
+          <br />    &nbsp;   ('Grosu', 'Adrian' , '2017-02-23' , 99000 , 'Oftalmologie pediatrica' , '0742987565');<br /> 
  
 The data from the table can be interrogated by using the following script<br /> 
  select* from **medici**;
 
  <br /> insert into **saloane**(etaj, capacitate)
  <br />   values(1 , 10),
-    <br /> &nbsp;     (2 , 10),
-     <br />  &nbsp;   (3 , 8),
-       <br /> &nbsp;  (4 , 6);<br />
-      <br />  The data from the table can be interrogated by using the following script<br />
+        <br /> &nbsp;     (2 , 10),
+        <br />  &nbsp;   (3 , 8),
+        <br /> &nbsp;  (4 , 6);<br />
+        
+        <br />  The data from the table can be interrogated by using the following script<br />
        select * from **saloane**; <br />
-      <br /> insert into interventii(procedura, data_interventie, id_salon, id_pacient, id_medic)
+       
+ <br /> insert into interventii(procedura, data_interventie, id_salon, id_pacient, id_medic)
  <br /> values('Inlocuirea cristalinului artificial' , '2022-03-19', 1 , 1 , 1),
        <br /> &nbsp;('Indepartarea cataractei juvenile' , '2022-04-16' , 3 , 2 , 2),
        <br /> &nbsp;('Extragerea intracapsulara a cristalinului' , '2022-09-22' , 1 , 3 , 1),
        <br /> &nbsp;('Excizia canalelor lacrimale', '2023-01-12', 2 , 4 , 4),
        <br /> &nbsp;('Alte proceduri pe muschii sau tendoanele extraoculare' , '2023-03-17' , 4 , 5, 3),
         ('Transplant muscular pentru strabism' , '2024-02-09', 2, 6 , 5); <br />
-        <br />  The data from the table can be interrogated by using the following script<br />
-       select * from **interventii**; <br />
         
-       
+ <br />  insert into interventii(procedura, data_interventie, id_salon, id_pacient, id_medic) <br />
+ <br />values ('Corectia glaucomului congenital', '2024-10-25', 3, 2, null);<br />
+ 
+        <br />  The data from the table can be interrogated by using the following script<br />  
+        select * from **interventii**; <br />
+         
+       <br /> insert into medicamente(denumire, pret, descriere)
+    <br /> values('Nostamine' , 25.80 , 'Destinat atat utilizarii nazale cat si intraoculare'),
+         <br />  ('Ialuvit' , 33.70 , 'Se distribuie uniform pe suprafata oculara formand un bandaj de protectie visco-elastic'),
+          <br /> ('Tarosin'  , 45.80 , 'Destinat hemoragiilor retiniene'),
+          <br /> ('Adrusen Mega' , 67.20 , 'Pentru preventia si tratamentul degenerescentei maculare legate varsta.'),
+		  <br /> ('Tobradex' , 56.8 , 'Pentru tratamentul inflamatiei si a unei posibile infectii oculare'); <br />
+    <br />  The data from the table can be interrogated by using the following script<br />
+       select * from **medicamente**; <br />
+
+        insert into retete( data_eliberare, id_pacient, id_medic)
+   values('2022-03-20' , 1 , 1),
+         ('2022-04-17' , 2 , 2),
+         ('2022-09-23' , 3 , 1),
+         ('2023-01-14' , 4 , 4),
+         ('2023-03-17' , 5 , 3),
+         ( '2024-02-10', 6 , 5);
+
+ The data from the table can be interrogated by using the following script<br />
+       select * from **retete**; <br />  
+
+       insert into registru_retete(cantitate, administrare, id_reteta, id_medicament)
+   values(30 , '5 zile-de 3 ori pe zi', 1, 2),
+         (20 , '3 zile-de 2 ori pe zi', 2, 3),
+         (100 , '10 zile-de 4 ori pe zi' , 3 , 5),
+         (60 , '7 zile-de 2 pe zi', 4, 1),
+         (3 , '3 zile-una pe zi', 5 , 4);
+         The data from the table can be interrogated by using the following script<br />
+       select * from **registru_retete**; <br /> 
+         
 
        
  
   After the insert, in order to prepare the data to be better suited for the testing process, I updated some data in the following way:
 
-  **Inserati aici toate instructiunile de UPDATE pe care le-ati scris folosind filtrarile necesare astfel incat sa actualizati doar datele de care aveti nevoie**
-
-
-  <li>DQL (Data Query Language)</li>
-
+  Se doreste extinderea specializarii cu cea de Strabism pentru medicul Preda Ancuta
+ **update** medici set specializare = 'Cataracta adultului/Strabism' where nume = 'Preda' and prenume = 'Ancuta'; 
+ 
 After the testing process, I deleted the data that was no longer relevant in order to preserve the database clean: 
 
-**Inserati aici toate instructiunile de DELETE pe care le-ati scris folosind filtrarile necesare astfel incat sa stergeti doar datele de care aveti nevoie**
+Se doreste stergerea interventiilor care au avut loc pe data de 17 martie 2023
+ **delete** from interventii where data_interventie = '2023-03-17';
+
+  <li>DQL (Data Query Language)</li>
 
 In order to simulate various scenarios that might happen in real life I created the following queries that would cover multiple potential real-life situations:
 
 **Inserati aici toate instructiunile de SELECT pe care le-ati scris folosind filtrarile necesare astfel incat sa extrageti doar datele de care aveti nevoie**
 **Incercati sa acoperiti urmatoarele:**<br>
-**- where**<br>
-**- AND**<br>
-**- OR**<br>
-**- NOT**<br>
-**- like**<br>
-**- inner join**<br>
-**- left join**<br>
-**- OPTIONAL: right join**<br>
-**- OPTIONAL: cross join**<br>
+**- where**<br  Sa se afiseze toata datele medicilor angajati incepand cu anul 2015 
+ select * from medici where year(data_angajare) >= 2015;
+ 
+ Sa se afiseze denumirea si descrierea medicamentelor care au pretul cuprins intre 30 si 60 de lei
+ select denumire, descriere from medicamente where pret between 30 and 60;
+ 
+**- AND**<br> Sa se selecteze toti medicii care au aceeasi specializare cu cea a medicului Apavaloaie Cornel, dar in afara de acesta
+select * from medici where specializare = (select specializare from medici where nume = 'Apavaloaie' and prenume = 'Cornel') and nume!='Apavaloaie' and prenume != 'Cornel';
+
+**- OR**<br>Sa se afiseze toti pacientii care au data nasterii pana in anul 1990 sau incepand cu anul 2000.
+ select * from pacienti where year(data_nasterii) <= 1990 OR year(data_nasterii) >= 2000;
+ 
+
+**- like**<br Sa se afiseze numele, prenumele si data nasterii pentru pacientii al caror prenume incepe cu litera A 
+ select nume, prenume, data_nasterii from pacienti where upper(prenume) like 'A%';
+ 
+**- inner join**<br>  Sa se afiseze pentru fiecare interventie din clinica numele interventiei, numele pacientului si numele medicului care a efectuat interventia
+select intrv.procedura, pac.nume as nume_pacient, pac.prenume as prenume_pacient, med.nume as nume_medic, med.prenume as prenume_medic from interventii intrv 
+inner join pacienti pac on intrv.id_pacient =  pac.id_pacient
+inner join medici med on intrv.id_medic =  med.id_medic;
+
+-- Sa se afiseze pentru fiecare reteta, numele medicamentelor prescrise si data eliberarii 
+select ret.id_reteta, ret.data_eliberare, med.denumire from registru_retete reg 
+inner join retete ret on ret.id_reteta = reg.id_reteta
+inner join medicamente med on med.id_medicament = reg.id_medicament;
+
+**- left join**<br>   Sa se afiseze numele pacientilor si numele interventiei suferite daca e cazul, atat pentru pacientii care au suferit sau nu interventii
+select pac.nume, pac.prenume, intrv.procedura from pacienti pac left join interventii intrv on intrv.id_pacient = pac.id_pacient;
+
+**- OPTIONAL: right join**<br>   Sa se afiseze numele medicilor si numele interventiei executate daca e cazul, atat pentru medicii care au executat sau nu interventii
+select med.nume, med.prenume, intrv.procedura from interventii intrv right join medici med on med.id_medic = intrv.id_medic;
+
+**- OPTIONAL: cross join**<br>  Sa se afiseze toate posibilitatile pentru tipurile de interventii care pot fi sustinute de fiecare medic
+select med.nume, med.prenume, intrv.procedura from medici med cross join interventii intrv;
+
 **- functii agregate**<br>
-**- group by**<br>
-**- having**<br>
+**- group by**<br>  Sa se afiseze numarul de medici din fiecare specializare in cazul in care acesta depaseste un medic pe specializare
+select specializare, count(id_medic) from medici group by specializare having count(id_medic) > 1;
+
+
 **- OPTIONAL DAR RECOMANDAT: Subqueries - nu au fost in scopul cursului. Puteti sa consultati tutorialul [asta](https://www.techonthenet.com/mysql/subqueries.php) si daca nu intelegeti ceva contactati fie trainerul, fie coordonatorul de grupa**<br>
 
 </ol>
