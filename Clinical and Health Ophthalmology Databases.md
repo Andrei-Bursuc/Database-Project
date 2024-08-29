@@ -192,7 +192,7 @@ insert into retete( data_eliberare, id_pacient, id_medic)
 <br /> The data from the table can be interrogated by using the following script<br />
        select * from **retete**; <br />
   <br />
-insert into registru_retete(cantitate, administrare, id_reteta, id_medicament)
+<br />insert into registru_retete(cantitate, administrare, id_reteta, id_medicament)
   <br /> values(30 , '5 zile-de 3 ori pe zi', 1, 2),
         <br /> (20 , '3 zile-de 2 ori pe zi', 2, 3),
          <br />(100 , '10 zile-de 4 ori pe zi' , 3 , 5),
@@ -227,13 +227,13 @@ In order to simulate various scenarios that might happen in real life I created 
 **- where**<br /> Display all the data of doctors employed starting from the year 2015." <br />
  select * from medici where year(data_angajare) >= 2015;<br />
  
- Sa se afiseze denumirea si descrierea medicamentelor care au pretul cuprins intre 30 si 60 de lei<br />
+Display the name and description of medications that have a price between 30 and 60 lei."<br />
  select denumire, descriere from medicamente where pret between 30 and 60;
  
-**- AND**<br> Sa se selecteze toti medicii care au aceeasi specializare cu cea a medicului Apavaloaie Cornel, dar in afara de acesta
+**- AND**<br> Select all doctors who have the same specialization as Dr. Apăvăloaie Cornel, except for him.
 select * from medici where specializare = (select specializare from medici where nume = 'Apavaloaie' and prenume = 'Cornel') and nume!='Apavaloaie' and prenume != 'Cornel';
 
-**- OR**<br>Sa se afiseze toti pacientii care au data nasterii pana in anul 1990 sau incepand cu anul 2000.
+**- OR**<br>Display all patients who were born before 1990 or after 2000
  select * from pacienti where year(data_nasterii) <= 1990 OR year(data_nasterii) >= 2000;
  
 
