@@ -18,21 +18,21 @@ https://github.com/Andrei-Bursuc/Database-Project/blob/main/Reverse%20Engineer.p
 The tables are connected in the following way:
 
 <ul>
-  <li> **Saloane**  is connected with **Interventii** through a **1:n** relationship which was implemented through **saloane.id_salon ** as a primary key and **interventii.id_salon** as a foreign key</li>
+  <li> Saloane  is connected with Interventii through a 1:n relationship which was implemented through saloane.id_salon  as a primary key and interventii.id_salon as a foreign key</li>
   
-  <li> **Pacienti**  is connected with **Interventii** through a **1:n** relationship which was implemented through **pacienti.id_pacient** as a primary key and **interventii.id_pacient** as a foreign key</li>
+  <li> Pacienti  is connected with Interventii through a 1:n relationship which was implemented through pacienti.id_pacient as a primary key and interventii.id_pacient as a foreign key</li>
   
-  <li> **Pacienti**  is connected with **Retete** through a **1:n** relationship which was implemented through **pacienti.id_pacient** as a primary key and **retete.id_reteta** as a foreign key</li>
+  <li> Pacienti  is connected with Retete through a 1:n relationship which was implemented through pacienti.id_pacient as a primary key and retete.id_reteta as a foreign key</li>
   
- <li> **Medici**  is connected with **Interventii** through a **1:n** relationship which was implemented through **medici.id_medic** as a primary key and **interventii.id_medic** as a foreign key</li>
+ <li> Medici  is connected with Interventii through a 1:n relationship which was implemented through medici.id_medic as a primary key and interventii.id_medic as a foreign key</li>
  
-  <li> **Medici**  is connected with **Retete** through a **1:n** relationship which was implemented through **medici.id_medic** as a primary key and **retete.id_medic** as a foreign key</li>
+  <li> Medici  is connected with Retete through a 1:n relationship which was implemented through medici.id_medic as a primary key and retete.id_medic as a foreign key</li>
   
-  <li> **Retete**  is connected with **Registru_Retete** through a **1:n** relationship which was implemented through **retete.id_reteta** as a primary key and **registru_retete.id_retea** as a foreign key</li>
+  <li> Retete  is connected with Registru_Retete through a 1:n relationship which was implemented through retete.id_reteta as a primary key and registru_retete.id_retea as a foreign key</li>
   
-  <li> **Medicamente**  is connected with **Registru_Retete** through a **1:n** relationship which was implemented through **medicamente.id_medicament** as a primary key and **registru_retete.id_medicament** as a foreign key</li>
+  <li> Medicamente  is connected with Registru_Retete through a 1:n relationship which was implemented through medicamente.id_medicament as a primary key and registru_retete.id_medicament as a foreign key</li>
 
-  <li> Because the tables **Retete** and **Medicamente** are connected by a **n:n** relationship, the table ** Registru_Retete** is used as a cross table in order to break this realationship and keep the database in a normalized state </li>
+  <li> Because the tables Retete and Medicament are connected by a n:n relationship, the table  Registru_Retete is used as a cross table in order to break this realationship and keep the database in a normalized state </li>
 </ul><br>
 
 <li>Database Queries</li><br>
