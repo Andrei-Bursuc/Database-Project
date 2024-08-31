@@ -229,8 +229,11 @@ In order to simulate various scenarios that might happen in real life I created 
 Display the name and description of medications that have a price between 30 and 60 lei."<br />
  select denumire, descriere from medicamente where pret between 30 and 60;
  
-**- AND**<br> Display all patients over the age of 30 who are female.<br />
-<br />select *from pacienti where varsta >25 and sex = 'feminin';
+**- AND**<br> Present all the interventions made by Dr. Monica Lisca between January 22 2012, and June 30 2024..<br />
+<br />select intrv.id_interventie, intrv.procedura, intrv.data_interventie, med.nume, med.prenume
+<br />from interventii intrv inner join medici med on intrv.id_medic = med.id_medic
+<br />where med.nume = 'Lisca' and med.prenume = 'Monica'
+<br />and intrv.data_interventie between '2022-01-12' and '2024-06-30';';
 
 **- OR**<br>Display all patients who were born before 1990 or after 2000<br>
  <br>select * from pacienti where year(data_nasterii) <= 1990 OR year(data_nasterii) >= 2000;
