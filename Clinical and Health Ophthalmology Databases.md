@@ -267,6 +267,9 @@ Display the name and description of medications that have a price between 30 and
 **- group by**<br>  Display the number of doctors in each specialization if it exceeds one doctor per specialization<br>
 <br>select specializare, count(id_medic) from medici **group by** specializare having count(id_medic) > 1;
 
+**- limit**<br>  Display the doctors starting from 2, 3 and 4th positions, which have the annual salary greater or equal to 90000 and order them descending by salary.<br>
+<br>select * from medici where salar_anual >= 90000 order by salar_anual desc limit 3 offset 1;<br>
+
 **- Subqueries** -<br>
 Select all doctors who have the same specialization as Dr. Apăvăloaie Cornel, except for him.<br>
 <br>select * from medici where specializare = (select specializare from medici where nume = 'Apavaloaie' and prenume = 'Cornel') and nume!='Apavaloaie' and prenume != 'Cornel';
