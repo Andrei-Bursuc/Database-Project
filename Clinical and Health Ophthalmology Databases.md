@@ -4,10 +4,10 @@ The scope of this project is to use all the SQL knowledge gained throught the So
 
 Application under test: **Visionary Care**
 
-Tools used: MySQL Workbench
+Tools used: **MySQL Workbench**
 
-Database description: **The Growing Need for Ophthalmic Data Standardization.
-When describing a database for an ophthalmology center, the design should capture all the relevant aspects of the clinic’s operations. This includes patient management, appointment scheduling, medical records, billing, inventory, and more. Maintain detailed records of diagnoses, treatments, and prescriptions. This helps in tracking patient progress over time and making informed medical decisions**
+Database description: **Due to the growing need for ophthalmic data standardization I decided to create a database for an ophthalmology clinic.
+The design of the database should capture all the relevant aspects of the clinic’s operations. This includes patient management, intervention management, medical records, medication inventory, and detailed records of diagnoses, treatments, and prescriptions. This helps in tracking patient progress over time and making informed medical decisions**
 
 <ol>
 <li>Database Schema </li>
