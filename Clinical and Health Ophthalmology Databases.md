@@ -221,54 +221,55 @@ After the testing process, I deleted the data that was no longer relevant in ord
 
 In order to simulate various scenarios that might happen in real life I created the following queries that would cover multiple potential real-life situations:
 
-**Inserati aici toate instructiunile de SELECT pe care le-ati scris folosind filtrarile necesare astfel incat sa extrageti doar datele de care aveti nevoie**
-**Incercati sa acoperiti urmatoarele:**<br>
-**- where**<br /> Display all the data of doctors employed starting from the year 2015." <br />
+
+
+**where**<br /> Display all the data of doctors employed starting from the year 2015." <br />
  select * from medici where year(data_angajare) >= 2015;<br />
  
 Display the name and description of medications that have a price between 30 and 60 lei."<br />
  select denumire, descriere from medicamente where pret between 30 and 60;
  
-**- AND**<br> Select all doctors who have the same specialization as Dr. Apăvăloaie Cornel, except for him.
-select * from medici where specializare = (select specializare from medici where nume = 'Apavaloaie' and prenume = 'Cornel') and nume!='Apavaloaie' and prenume != 'Cornel';
+**- AND**<br> Display all patients over the age of 30 who are female.<br />
+<br />select *from pacienti where varsta >25 and sex = 'feminin';
 
-**- OR**<br>Display all patients who were born before 1990 or after 2000
- select * from pacienti where year(data_nasterii) <= 1990 OR year(data_nasterii) >= 2000;
+**- OR**<br>Display all patients who were born before 1990 or after 2000<br>
+ <br>select * from pacienti where year(data_nasterii) <= 1990 OR year(data_nasterii) >= 2000;
  
 
-**- like**<br> Display the last name, first name, and date of birth for patients whose first name starts with the letter A.
+**- like**<br> Display the last name, first name, and date of birth for patients whose first name starts with the letter A.<br>
 <br> select nume, prenume, data_nasterii from pacienti where upper(prenume) like 'A%';
  
-**- inner join**<br>  Sa se afiseze pentru fiecare interventie din clinica numele interventiei, numele pacientului si numele medicului care a efectuat interventia
-select intrv.procedura, pac.nume as nume_pacient, pac.prenume as prenume_pacient, med.nume as nume_medic, med.prenume as prenume_medic from interventii intrv 
+**- inner join**<br>  Display the name of the intervention, the name of the patient, and the name of the doctor who performed the intervention for each procedure in the clinic<br>
+<br>select intrv.procedura, pac.nume as nume_pacient, pac.prenume as prenume_pacient, med.nume as nume_medic, med.prenume as prenume_medic from interventii intrv 
 inner join pacienti pac on intrv.id_pacient =  pac.id_pacient
 inner join medici med on intrv.id_medic =  med.id_medic;
 
--- Sa se afiseze pentru fiecare reteta, numele medicamentelor prescrise si data eliberarii 
-select ret.id_reteta, ret.data_eliberare, med.denumire from registru_retete reg 
+--Display the prescribed medication names and the issue date for each prescription <br>
+<br>select ret.id_reteta, ret.data_eliberare, med.denumire from registru_retete reg 
 inner join retete ret on ret.id_reteta = reg.id_reteta
 inner join medicamente med on med.id_medicament = reg.id_medicament;
 
-**- left join**<br>   Sa se afiseze numele pacientilor si numele interventiei suferite daca e cazul, atat pentru pacientii care au suferit sau nu interventii
-select pac.nume, pac.prenume, intrv.procedura from pacienti pac left join interventii intrv on intrv.id_pacient = pac.id_pacient;
+**- left join**<br>   Display the names of the patients and the name of the intervention they underwent, if applicable, for both patients who have undergone interventions and those who have not<br>
+<br>select pac.nume, pac.prenume, intrv.procedura from pacienti pac left join interventii intrv on intrv.id_pacient = pac.id_pacient;
 
-**- OPTIONAL: right join**<br>   Sa se afiseze numele medicilor si numele interventiei executate daca e cazul, atat pentru medicii care au executat sau nu interventii
-select med.nume, med.prenume, intrv.procedura from interventii intrv right join medici med on med.id_medic = intrv.id_medic;
+**- OPTIONAL: right join**<br>   Display the names of the doctors and the names of the interventions they performed, if applicable, for both doctors who have performed interventions and those who have not<br>
+<br>select med.nume, med.prenume, intrv.procedura from interventii intrv right join medici med on med.id_medic = intrv.id_medic;
 
-**- OPTIONAL: cross join**<br>  Sa se afiseze toate posibilitatile pentru tipurile de interventii care pot fi sustinute de fiecare medic
-select med.nume, med.prenume, intrv.procedura from medici med cross join interventii intrv;
+**- OPTIONAL: cross join**<br>  Display all possible types of interventions that can be performed by each doctor<br>
+<br>select med.nume, med.prenume, intrv.procedura from medici med cross join interventii intrv;
 
 **- functii agregate**<br>
-**- group by**<br>  Sa se afiseze numarul de medici din fiecare specializare in cazul in care acesta depaseste un medic pe specializare
-select specializare, count(id_medic) from medici group by specializare having count(id_medic) > 1;
+**- group by**<br>  Display the number of doctors in each specialization if it exceeds one doctor per specialization<br>
+<br>select specializare, count(id_medic) from medici group by specializare having count(id_medic) > 1;
 
 
-**- OPTIONAL DAR RECOMANDAT: Subqueries - nu au fost in scopul cursului. Puteti sa consultati tutorialul [asta](https://www.techonthenet.com/mysql/subqueries.php) si daca nu intelegeti ceva contactati fie trainerul, fie coordonatorul de grupa**<br>
+**- OPTIONAL : Subqueries** -<br>
+Select all doctors who have the same specialization as Dr. Apăvăloaie Cornel, except for him.<br>
+<br>select * from medici where specializare = (select specializare from medici where nume = 'Apavaloaie' and prenume = 'Cornel') and nume!='Apavaloaie' and prenume != 'Cornel';
 
 </ol>
 
 <li>Conclusions</li>
 
-**Inserati aici o concluzie cu privire la ceea ce ati lucrat, gen lucrurile pe care le-ati invatat, lessons learned, un rezumat asupra a ceea ce ati facut si orice alta informatie care vi se pare relevanta pentru o concluzie finala asupra a ceea ce ati lucrat**
-
+Creating and managing a database for an ophthalmology clinic provides valuable insights and lessons that can improve future projects.Detailed requirements gathering is crucial. Involve stakeholders (doctors, nurses, administrative staff) early to understand their needs and expectations. Anticipate future growth in data volume and user numbers. Design the database schema to accommodate additional features or increased data without major overhauls. Using databases provides structured, efficient, and secure data management solutions that support business operations and decision-making. They offer scalability, reliability, and the capability to handle complex data relationships, making them a fundamental component in modern information systems.
 </ol>
