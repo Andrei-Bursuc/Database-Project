@@ -205,9 +205,9 @@ insert into **retete**( data_eliberare, id_pacient, id_medic)
  
   After the insert, in order to prepare the data to be better suited for the testing process, I updated some data in the following way:
 
-  1.The expansion of specialization to include Strabismus is requested for Dr. Preda Ancuța  <br />
+  1.The expansion of specialization to include 'Strabism' is requested for Dr. Preda Ancuța  <br />
 **update** medici set specializare = 'Cataracta adultului/Strabism' where nume = 'Preda' and prenume = 'Ancuta'; <br /> 
-<br />  2.It is requested to increase by 5% the annual salary of doctors who have the specialization in Refractive Surgery Grade II."<br /> 
+<br />  2.It is requested to increase by 5% the annual salary of doctors who have the specialization in 'Chirurgie refractiva grad II'."<br /> 
 **update** medici set salar_anual = salar_anual * 1.05 where specializare = 'Chirurgie refractiva grad II';
  
 After the testing process, I deleted the data that was no longer relevant in order to preserve the database clean: 
@@ -255,18 +255,19 @@ Display the name and description of medications that have a price between 30 and
 **- left join**<br>   Display the names of the patients and the name of the intervention they underwent, if applicable, for both patients who have undergone interventions and those who have not<br>
 <br>select pac.nume, pac.prenume, intrv.procedura from pacienti pac **left join** interventii intrv on intrv.id_pacient = pac.id_pacient;
 
-**- OPTIONAL: right join**<br>   Display the names of the doctors and the names of the interventions they performed, if applicable, for both doctors who have performed interventions and those who have not<br>
+**- right join**<br>   Display the names of the doctors and the names of the interventions they performed, if applicable, for both doctors who have performed interventions and those who have not<br>
 <br>select med.nume, med.prenume, intrv.procedura from interventii intrv **right join** medici med on med.id_medic = intrv.id_medic;
 
-**- OPTIONAL: cross join**<br>  Display all possible types of interventions that can be performed by each doctor<br>
+**- cross join**<br>  Display all possible types of interventions that can be performed by each doctor<br>
 <br>select med.nume, med.prenume, intrv.procedura from medici med **cross join** interventii intrv;
 
-**- functii agregate**<br>
+**- functii agregate**<br> Display the total anual salary, the min salary, the max salary, the average salary of the doctors working in the clinic and also the total number of doctors.<br>
+<br>select **sum**(truncate(salar_anual, 2)) as salar_anual_total, truncate(**max**(salar_anual), 2) as salar_maxim,  truncate (**min**(salar_anual), 2) as salar_minim, truncate(**avg**(salar_anual), 2) as salar_mediu, **count**(id_medic) numar_medici from medici;<br>
+
 **- group by**<br>  Display the number of doctors in each specialization if it exceeds one doctor per specialization<br>
 <br>select specializare, count(id_medic) from medici **group by** specializare having count(id_medic) > 1;
 
-
-**- OPTIONAL : Subqueries** -<br>
+**- Subqueries** -<br>
 Select all doctors who have the same specialization as Dr. Apăvăloaie Cornel, except for him.<br>
 <br>select * from medici where specializare = (select specializare from medici where nume = 'Apavaloaie' and prenume = 'Cornel') and nume!='Apavaloaie' and prenume != 'Cornel';
 
@@ -274,5 +275,5 @@ Select all doctors who have the same specialization as Dr. Apăvăloaie Cornel, 
 
 <li>Conclusions</li>
 
-Creating and managing a database for an ophthalmology clinic provides valuable insights and lessons that can improve future projects.Detailed requirements gathering is crucial. Involve stakeholders (doctors, nurses, administrative staff) early to understand their needs and expectations. Anticipate future growth in data volume and user numbers. Design the database schema to accommodate additional features or increased data without major overhauls. Using databases provides structured, efficient, and secure data management solutions that support business operations and decision-making. They offer scalability, reliability, and the capability to handle complex data relationships, making them a fundamental component in modern information systems.
+Creating and managing a database for an ophthalmology clinic provides valuable insights and lessons that can improve future projects. Detailed requirements gathering is crucial. Involve stakeholders (doctors, nurses, administrative staff) early to understand their needs and expectations. Anticipate future growth in data volume and user numbers. Design the database schema to accommodate additional features or increased data without major overhauls. Using databases provides structured, efficient, and secure data management solutions that support business operations and decision-making. They offer scalability, reliability, and the capability to handle complex data relationships, making them a fundamental component in modern information systems.
 </ol>
