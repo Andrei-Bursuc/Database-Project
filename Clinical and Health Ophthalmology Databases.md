@@ -7,8 +7,7 @@ Application under test: **Visionary Care**
 Tools used: MySQL Workbench
 
 Database description: **The Growing Need for Ophthalmic Data Standardization.
-Data availability has catalyzed medical research with notable examples in ophthalmology, focused largely on common conditions, including glaucoma, diabetic retinopathy, cataracts, and age-related macular degeneration. 
-Health care data are derived from a variety of sources and may be prospectively collected for specific research studies, collected as part of routine clinical practice, or generated as a by-product of data from industries external but related to health care.**
+When describing a database for an ophthalmology center, the design should capture all the relevant aspects of the clinic’s operations. This includes patient management, appointment scheduling, medical records, billing, inventory, and more. Maintain detailed records of diagnoses, treatments, and prescriptions. This helps in tracking patient progress over time and making informed medical decisions**
 
 <ol>
 <li>Database Schema </li>
