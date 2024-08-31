@@ -157,7 +157,7 @@ The data from the table can be interrogated by using the following script<br />
 The data from the table can be interrogated by using the following script<br />
        select * from **saloane**; 
     <br />     
- <br /> insert into interventii(procedura, data_interventie, id_salon, id_pacient, id_medic)
+ <br /> insert into **interventii**(procedura, data_interventie, id_salon, id_pacient, id_medic)
  <br /> values('Inlocuirea cristalinului artificial' , '2022-03-19', 1 , 1 , 1),
        <br /> &nbsp;('Indepartarea cataractei juvenile' , '2022-04-16' , 3 , 2 , 2),
        <br /> &nbsp;('Extragerea intracapsulara a cristalinului' , '2022-09-22' , 1 , 3 , 1),
@@ -165,13 +165,13 @@ The data from the table can be interrogated by using the following script<br />
        <br /> &nbsp;('Alte proceduri pe muschii sau tendoanele extraoculare' , '2023-03-17' , 4 , 5, 3),
        <br /> ('Transplant muscular pentru strabism' , '2024-02-09', 2, 6 , 5); 
         
- insert into interventii(procedura, data_interventie, id_salon, id_pacient, id_medic)<br />
+ insert into **interventii**(procedura, data_interventie, id_salon, id_pacient, id_medic)<br />
 values ('Corectia glaucomului congenital', '2024-10-25', 3, 2, null);<br />
  
   The data from the table can be interrogated by using the following script<br />
         select * from **interventii**; <br />
    <br />        
- insert into medicamente(denumire, pret, descriere)
+ insert into **medicamente**(denumire, pret, descriere)
     <br /> values('Nostamine' , 25.80 , 'Destinat atat utilizarii nazale cat si intraoculare'),
          <br />  ('Ialuvit' , 33.70 , 'Se distribuie uniform pe suprafata oculara formand un bandaj de protectie visco-elastic'),
           <br /> ('Tarosin'  , 45.80 , 'Destinat hemoragiilor retiniene'),
@@ -180,7 +180,7 @@ values ('Corectia glaucomului congenital', '2024-10-25', 3, 2, null);<br />
     <br />  The data from the table can be interrogated by using the following script<br />
        select * from **medicamente**; <br />
     <br />     
-insert into retete( data_eliberare, id_pacient, id_medic)
+insert into **retete**( data_eliberare, id_pacient, id_medic)
    <br />  values('2022-03-20' , 1 , 1),
        <br />    ('2022-04-17' , 2 , 2),
         <br />   ('2022-09-23' , 3 , 1),
@@ -191,7 +191,7 @@ insert into retete( data_eliberare, id_pacient, id_medic)
 <br /> The data from the table can be interrogated by using the following script<br />
        select * from **retete**; <br />
   <br />
-<br />insert into registru_retete(cantitate, administrare, id_reteta, id_medicament)
+<br />insert into **registru_retete**(cantitate, administrare, id_reteta, id_medicament)
   <br /> values(30 , '5 zile-de 3 ori pe zi', 1, 2),
         <br /> (20 , '3 zile-de 2 ori pe zi', 2, 3),
          <br />(100 , '10 zile-de 4 ori pe zi' , 3 , 5),
@@ -224,46 +224,46 @@ In order to simulate various scenarios that might happen in real life I created 
 
 
 **where**<br /> Display all the data of doctors employed starting from the year 2015." <br />
- select * from medici where year(data_angajare) >= 2015;<br />
+ select * from medici **where** year(data_angajare) >= 2015;<br />
  
 Display the name and description of medications that have a price between 30 and 60 lei."<br />
- select denumire, descriere from medicamente where pret between 30 and 60;
+ select denumire, descriere from medicamente **where** pret between 30 and 60;
  
 **- AND**<br> Present all the interventions made by Dr. Monica Lisca between January 22 2012, and June 30 2024..<br />
 <br />select intrv.id_interventie, intrv.procedura, intrv.data_interventie, med.nume, med.prenume
 <br />from interventii intrv inner join medici med on intrv.id_medic = med.id_medic
-<br />where med.nume = 'Lisca' and med.prenume = 'Monica'
-<br />and intrv.data_interventie between '2022-01-12' and '2024-06-30';';
+<br />where med.nume = 'Lisca' **and** med.prenume = 'Monica'
+<br />**and** intrv.data_interventie between '2022-01-12' **and** '2024-06-30';';
 
 **- OR**<br>Display all patients who were born before 1990 or after 2000<br>
- <br>select * from pacienti where year(data_nasterii) <= 1990 OR year(data_nasterii) >= 2000;
+ <br>select * from pacienti where year(data_nasterii) <= 1990 **or** year(data_nasterii) >= 2000;
  
 
 **- like**<br> Display the last name, first name, and date of birth for patients whose first name starts with the letter A.<br>
-<br> select nume, prenume, data_nasterii from pacienti where upper(prenume) like 'A%';
+<br> select nume, prenume, data_nasterii from pacienti where upper(prenume) **like** 'A%';
  
 **- inner join**<br>  Display the name of the intervention, the name of the patient, and the name of the doctor who performed the intervention for each procedure in the clinic<br>
 <br>select intrv.procedura, pac.nume as nume_pacient, pac.prenume as prenume_pacient, med.nume as nume_medic, med.prenume as prenume_medic from interventii intrv 
-inner join pacienti pac on intrv.id_pacient =  pac.id_pacient
-inner join medici med on intrv.id_medic =  med.id_medic;
+**inner join** pacienti pac on intrv.id_pacient =  pac.id_pacient
+**inner join** medici med on intrv.id_medic =  med.id_medic;
 
 --Display the prescribed medication names and the issue date for each prescription <br>
 <br>select ret.id_reteta, ret.data_eliberare, med.denumire from registru_retete reg 
-inner join retete ret on ret.id_reteta = reg.id_reteta
-inner join medicamente med on med.id_medicament = reg.id_medicament;
+**inner join** retete ret on ret.id_reteta = reg.id_reteta
+**inner join** medicamente med on med.id_medicament = reg.id_medicament;
 
 **- left join**<br>   Display the names of the patients and the name of the intervention they underwent, if applicable, for both patients who have undergone interventions and those who have not<br>
-<br>select pac.nume, pac.prenume, intrv.procedura from pacienti pac left join interventii intrv on intrv.id_pacient = pac.id_pacient;
+<br>select pac.nume, pac.prenume, intrv.procedura from pacienti pac **left join** interventii intrv on intrv.id_pacient = pac.id_pacient;
 
 **- OPTIONAL: right join**<br>   Display the names of the doctors and the names of the interventions they performed, if applicable, for both doctors who have performed interventions and those who have not<br>
-<br>select med.nume, med.prenume, intrv.procedura from interventii intrv right join medici med on med.id_medic = intrv.id_medic;
+<br>select med.nume, med.prenume, intrv.procedura from interventii intrv **right join** medici med on med.id_medic = intrv.id_medic;
 
 **- OPTIONAL: cross join**<br>  Display all possible types of interventions that can be performed by each doctor<br>
-<br>select med.nume, med.prenume, intrv.procedura from medici med cross join interventii intrv;
+<br>select med.nume, med.prenume, intrv.procedura from medici med **cross join** interventii intrv;
 
 **- functii agregate**<br>
 **- group by**<br>  Display the number of doctors in each specialization if it exceeds one doctor per specialization<br>
-<br>select specializare, count(id_medic) from medici group by specializare having count(id_medic) > 1;
+<br>select specializare, count(id_medic) from medici **group by** specializare having count(id_medic) > 1;
 
 
 **- OPTIONAL : Subqueries** -<br>
