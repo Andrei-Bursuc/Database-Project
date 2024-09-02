@@ -11,35 +11,26 @@ Due to the growing need for ophthalmic data standardization I decided to create 
 The design of the database should capture all the relevant aspects of the clinic’s operations. This includes patient management, intervention management, medical records, medication inventory, and detailed records of diagnoses, treatments, and prescriptions. This helps in tracking patient progress over time and making informed medical decisions.
 
 ## Database Structure
-![DesignDataBases](https://github.com/Andrei-Bursuc/Database-Project/blob/main/Reverse%20Engineer.png)
-
-<ol>
-<li>Database Schema </li>
-<br>
-![DesignDataBases](https://github.com/Andrei-Bursuc/Database-Project/blob/main/Reverse%20Engineer.png)
-<br>
 You can find below the database schema that was generated through Reverse Engineer and which contains all the tables and the relationships between them.
-https://github.com/Andrei-Bursuc/Database-Project/blob/main/Reverse%20Engineer.png
+![DesignDataBases](https://github.com/Andrei-Bursuc/Database-Project/blob/main/Reverse%20Engineer.png)
 
-The tables are connected in the following way:
+**The tables are connected in the following way:**
 
-<ul>
-  <li> Saloane  is connected with Interventii through a 1:n relationship which was implemented through saloane.id_salon  as a primary key and interventii.id_salon as a foreign key</li
+`Saloane`  is connected with Interventii through a 1:n relationship which was implemented through saloane.id_salon  as a primary key and interventii.id_salon as a foreign key.
   
-<br />  <li> Pacienti  is connected with Interventii through a 1:n relationship which was implemented through pacienti.id_pacient as a primary key and interventii.id_pacient as a foreign key</li>
+`Pacienti`  is connected with Interventii through a 1:n relationship which was implemented through pacienti.id_pacient as a primary key and interventii.id_pacient as a foreign key.
   
-  <li> Pacienti  is connected with Retete through a 1:n relationship which was implemented through pacienti.id_pacient as a primary key and retete.id_reteta as a foreign key</li><br />
+`Pacienti`  is connected with Retete through a 1:n relationship which was implemented through pacienti.id_pacient as a primary key and retete.id_reteta as a foreign key.
   
- <li> Medici  is connected with Interventii through a 1:n relationship which was implemented through medici.id_medic as a primary key and interventii.id_medic as a foreign key</li><br />
+`Medici`  is connected with Interventii through a 1:n relationship which was implemented through medici.id_medic as a primary key and interventii.id_medic as a foreign key.
  
-  <li> Medici  is connected with Retete through a 1:n relationship which was implemented through medici.id_medic as a primary key and retete.id_medic as a foreign key</li><br />
+`Medici`  is connected with Retete through a 1:n relationship which was implemented through medici.id_medic as a primary key and retete.id_medic as a foreign key.
   
-  <li> Retete  is connected with Registru_Retete through a 1:n relationship which was implemented through retete.id_reteta as a primary key and registru_retete.id_retea as a foreign key</li><br />
+`Retete`  is connected with Registru_Retete through a 1:n relationship which was implemented through retete.id_reteta as a primary key and registru_retete.id_retea as a foreign key.
   
-  <li> Medicamente  is connected with Registru_Retete through a 1:n relationship which was implemented through medicamente.id_medicament as a primary key and registru_retete.id_medicament as a foreign key</li><br />
+`Medicamente`  is connected with Registru_Retete through a 1:n relationship which was implemented through medicamente.id_medicament as a primary key and registru_retete.id_medicament as a foreign key.
 
-  <li> Because the tables Retete and Medicament are connected by a n:n relationship, the table  Registru_Retete is used as a cross table in order to break this realationship and keep the database in a normalized state </li><br />
-</ul><br>
+ Because the tables Retete and Medicamente are connected by a n:n relationship, the table  Registru_Retete is used as a cross table in order to break this realationship and keep the database in a normalized state.
 
 ## Database Queries
 
