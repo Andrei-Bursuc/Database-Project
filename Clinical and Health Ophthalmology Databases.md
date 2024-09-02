@@ -1,4 +1,4 @@
-<h1>Database Project for Visionary Care</h1>
+# Database Project for Visionary Care
 
 The scope of this project is to use all the SQL knowledge gained throught the Software Testing course and apply them in practice.
 
@@ -6,8 +6,9 @@ Application under test: **Visionary Care**
 
 Tools used: **MySQL Workbench**
 
-Database description: **Due to the growing need for ophthalmic data standardization I decided to create a database for an ophthalmology clinic.
-The design of the database should capture all the relevant aspects of the clinic’s operations. This includes patient management, intervention management, medical records, medication inventory, and detailed records of diagnoses, treatments, and prescriptions. This helps in tracking patient progress over time and making informed medical decisions**
+## Database description 
+Due to the growing need for ophthalmic data standardization I decided to create a database for an ophthalmology clinic.
+The design of the database should capture all the relevant aspects of the clinic’s operations. This includes patient management, intervention management, medical records, medication inventory, and detailed records of diagnoses, treatments, and prescriptions. This helps in tracking patient progress over time and making informed medical decisions.
 
 ## Database Structure
 ![DesignDataBases](https://github.com/Andrei-Bursuc/Database-Project/blob/main/Reverse%20Engineer.png)
@@ -40,7 +41,7 @@ The tables are connected in the following way:
   <li> Because the tables Retete and Medicament are connected by a n:n relationship, the table  Registru_Retete is used as a cross table in order to break this realationship and keep the database in a normalized state </li><br />
 </ul><br>
 
-<li>Database Queries</li><br>
+## Database Queries
 
 <ol type="a">
   <li>DDL (Data Definition Language)</li>
@@ -286,7 +287,6 @@ Select all doctors who have the same specialization as Dr. Apăvăloaie Cornel, 
 
 </ol>
 
-<li>Conclusions</li>
-
+## Conclusions
 Creating and managing a database for an ophthalmology clinic provides valuable insights and lessons that can improve future projects. Detailed requirements gathering is crucial. Involve stakeholders (doctors, nurses, administrative staff) early to understand their needs and expectations. Anticipate future growth in data volume and user numbers. Design the database schema to accommodate additional features or increased data without major overhauls. Using databases provides structured, efficient, and secure data management solutions that support business operations and decision-making. They offer scalability, reliability, and the capability to handle complex data relationships, making them a fundamental component in modern information systems.
 </ol>
