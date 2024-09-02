@@ -41,6 +41,12 @@ The tables are connected in the following way:
   <li>DDL (Data Definition Language)</li>
 
   The following instructions were written in the scope of CREATING the structure of the database (CREATE INSTRUCTIONS)
+  
+```sql
+# Create Database and use;
+create database clinica_oftalmologica;
+use clinica_oftalmologica;
+```
 
 <br />create table **saloane**
 <br />(
