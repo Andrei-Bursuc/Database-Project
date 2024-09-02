@@ -46,12 +46,12 @@ The tables are connected in the following way:
 create database clinica_oftalmologica;
 use clinica_oftalmologica;
 
-<br />create table **saloane**
-<br />(
-<br />id_salon int primary key auto_increment,
-<br />etaj int not null, 
-<br />capacitate int not null
-<br />); 
+create table saloane
+(
+id_salon int primary key auto_increment,
+etaj int not null, 
+capacitate int not null
+); 
 
 <br />create table **pacienti**
 <br />(
