@@ -9,6 +9,9 @@ Tools used: **MySQL Workbench**
 Database description: **Due to the growing need for ophthalmic data standardization I decided to create a database for an ophthalmology clinic.
 The design of the database should capture all the relevant aspects of the clinic’s operations. This includes patient management, intervention management, medical records, medication inventory, and detailed records of diagnoses, treatments, and prescriptions. This helps in tracking patient progress over time and making informed medical decisions**
 
+## Database Structure
+![DesignDataBases](https://github.com/AdrianPricopie/MySQL-Project/blob/main/DataBases_Structure.png)
+
 <ol>
 <li>Database Schema </li>
 <br>
