@@ -10,7 +10,7 @@ Database description: **Due to the growing need for ophthalmic data standardizat
 The design of the database should capture all the relevant aspects of the clinic’s operations. This includes patient management, intervention management, medical records, medication inventory, and detailed records of diagnoses, treatments, and prescriptions. This helps in tracking patient progress over time and making informed medical decisions**
 
 ## Database Structure
-![DesignDataBases](https://github.com/AdrianPricopie/MySQL-Project/blob/main/DataBases_Structure.png)
+![DesignDataBases](https://github.com/Andrei-Bursuc/Database-Project/blob/main/Reverse%20Engineer.png)
 
 <ol>
 <li>Database Schema </li>
