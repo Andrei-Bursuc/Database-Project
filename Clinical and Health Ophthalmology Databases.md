@@ -12,6 +12,8 @@ The design of the database should capture all the relevant aspects of the clinic
 <ol>
 <li>Database Schema </li>
 <br>
+![DesignDataBases](https://github.com/Andrei-Bursuc/Database-Project/blob/main/Reverse%20Engineer.png)
+<br>
 You can find below the database schema that was generated through Reverse Engineer and which contains all the tables and the relationships between them.
 https://github.com/Andrei-Bursuc/Database-Project/blob/main/Reverse%20Engineer.png
 
