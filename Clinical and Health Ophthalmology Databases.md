@@ -176,7 +176,7 @@ insert into interventii(procedura, data_interventie, id_salon, id_pacient, id_me
 values
 ('Corectia glaucomului congenital', '2024-10-25', 3, 2, null);
  
-The data from the table can be interrogated by using the following script:
+#The data from the table can be interrogated by using the following script:
 select * from interventii;
         
 insert into medicamente(denumire, pret, descriere)
